@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: farmSense-Service
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/farmsense_db
+    username: postgres
+    password: mdsoln
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+logging:
+  level:
+    org.springframework: DEBUG
+    org.hibernate: DEBUG
+    com.zaxxer.hikari: DEBUG
+    com.borlaughX: DEBUG  # Adjust as necessary to match your package structure
+
+# Resilience4J configuration (if using circuit breakers, retries, etc.)
+resilience4j:
+  retry:
+    instances:
+      pythonApi:
+        maxAttempts: 3
+        waitDuration: 500ms
+        retryExceptions:
+          - java.io.IOException
+          - java.net.ConnectException
+        ignoreExceptions:
+          - java.lang.IllegalArgumentException
+  circuitbreaker:
+    instances:
+      pythonApi:
+        registerHealthIndicator: true
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10000ms
+        slidingWindowSize: 10
+        minimumNumberOfCalls: 5
+
+# Python API URL configuration
+python:
+  api:
+    url: http://localhost:8000

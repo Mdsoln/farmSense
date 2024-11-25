@@ -1,4 +1,4 @@
-package com.borlaughX.webflux;
+package com.borlaughX.config;
 
 import io.netty.channel.ChannelOption;
 import org.springframework.context.annotation.Bean;

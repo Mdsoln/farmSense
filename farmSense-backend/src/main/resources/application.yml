@@ -42,3 +42,7 @@ resilience4j:
         slidingWindowSize: 10
         minimumNumberOfCalls: 5
 
+# Python API URL configuration
+python:
+  api:
+    url: http://localhost:8000

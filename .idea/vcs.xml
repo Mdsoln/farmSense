@@ -2,10 +2,5 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
-<<<<<<< HEAD
-    <mapping directory="$PROJECT_DIR$/BourlagX" vcs="Git" />
-=======
-    <mapping directory="$PROJECT_DIR$" vcs="Git" />
->>>>>>> parent of d4bbd8f (Added BourlagX as part of the farmSense repository)
   </component>
 </project>

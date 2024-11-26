@@ -1,0 +1,36 @@
+{
+  "expo": {
+    "name": "BourlagX",
+    "slug": "BourlagX",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "permissions": [
+      "CAMERA",
+      "AUDIO_RECORDING"
+    ],
+    "android": {
+      "package": "com.anonymous.Pride",
+      "userInterfaceStyle": "light",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "platforms": ["ios", "android", "web"],
+    "experiments": {
+      "newArchEnabled": true
+    }
+  }
+}

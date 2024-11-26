@@ -1,0 +1,23 @@
+{
+    "settings": {
+      "age": "Edad:",
+      "weight": "Peso:",
+      "notifications": "Notificaciones",
+      "reminders": "Recordatorios",
+      "cycleLength": "Longitud del ciclo",
+      "trackSymptoms": "Rastrear síntomas",
+      "trackMedication": "Rastrear medicación",
+      "notes": "Notas",
+      "language": "Idioma",
+      "darkMode": "Modo oscuro",
+      "saveSettings": "Guardar configuración",
+      "about": "Acerca de",
+      "terms": "Términos y condiciones",
+      "privacy": "Política de privacidad",
+      "tutorial": "Tutorial",
+      "logout": "Cerrar sesión",
+      "deleteAccount": "Eliminar cuenta",
+      "contactUs": "Contáctenos"
+    }
+  }
+  

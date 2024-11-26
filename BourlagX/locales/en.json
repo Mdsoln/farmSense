@@ -1,0 +1,20 @@
+{
+    "settings": {
+      "age": "Age",
+      "weight": "Weight",
+      "notifications": "Notifications",
+      "reminders": "Reminders",
+      "cycleLength": "Cycle Length",
+      "trackSymptoms": "Track Symptoms",
+      "trackMedication": "Track Medication",
+      "notes": "Notes",
+      "language": "Language",
+      "darkMode": "Dark Mode",
+      "saveSettings": "Save Settings",
+      "logOut": "Log Out",
+      "deleteAccount": "Delete Account",
+      "contactUs": "Contact Us",
+      "about": "About"
+    }
+  }
+  

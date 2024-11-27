@@ -1,3 +1,4 @@
+/*
 package com.borlaughX.service;
 
 import com.borlaughX.models.SoilAnalysisResponse;
@@ -24,3 +25,4 @@ public class SoilDataService {
         }
     }
 }
+*/

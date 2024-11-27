@@ -1,5 +1,5 @@
 
-# farmSense 🌾📱
+# BorlaughX 🌾📱
 
 **farmSense** is an innovative mobile application designed to revolutionize agriculture by enhancing climate resilience and sustainability. Powered by cutting-edge technologies, it equips farmers with the tools and insights they need to adapt to changing environmental conditions and optimize resource management.
 

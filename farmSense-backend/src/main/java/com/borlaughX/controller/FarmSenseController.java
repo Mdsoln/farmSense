@@ -1,3 +1,4 @@
+/*
 package com.borlaughX.controller;
 
 import com.borlaughX.models.SoilAnalysisResponse;
@@ -18,3 +19,4 @@ public class FarmSenseController {
         return soilDataService.fetchSoilData(farmId);
     }
 }
+*/

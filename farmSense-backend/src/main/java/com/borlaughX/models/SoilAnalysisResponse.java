@@ -1,3 +1,4 @@
+/*
 package com.borlaughX.models;
 
 import lombok.*;
@@ -15,3 +16,4 @@ public class SoilAnalysisResponse {
     private String fertilizerUsage;
 
 }
+*/

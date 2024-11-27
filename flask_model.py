@@ -1,11 +1,17 @@
+import logging
 from flask import Flask, request, jsonify
 import pickle
 import pandas as pd
+
+# Set up logging
+logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger()
 
 # Load the model
 try:
     with open("soil_health_model_v2.pkl", "rb") as f:
         model = pickle.load(f)
+    logger.info("Model loaded successfully.")
 except FileNotFoundError:
     raise RuntimeError("Model file 'soil_health_model_v2.pkl' not found. Train and save the model first.")
 
@@ -75,23 +81,47 @@ def predict():
     try:
         # Parse input JSON
         input_data = request.json
-        input_df = pd.DataFrame([input_data])
-        input_df = input_df[FEATURES]  # Ensure correct feature order
+        logger.debug(f"Received input data: {input_data}")
+
+        # Map input data to match model's expected features
+        input_features = {
+            "Saturation (% weight)": input_data.get("saturation"),
+            "Organic Carbon (% weight)": input_data.get("organicCarbon"),
+            "Soil pH": input_data.get("soilPh"),
+            "Nitrogen Level": input_data.get("nitrogenLevel"),
+            "Phosphorus Level": input_data.get("phosphorusLevel"),
+            "Potassium Level": input_data.get("potassiumLevel"),
+            "Salinity (dS/m)": input_data.get("salinity"),
+            "Oxygen Level (%)": input_data.get("oxygenLevel"),
+        }
+        logger.debug(f"Input Features for Recommendations: {input_features}")
+
+        # Create a DataFrame for the model
+        input_df = pd.DataFrame([input_features])
+        logger.debug(f"Input DataFrame: {input_df}")
 
         # Make prediction
         prediction = model.predict(input_df)[0]
         prediction_label = {0: "Poor", 1: "Moderate", 2: "Healthy"}[prediction]
+        logger.debug(f"Prediction: {prediction_label}")
 
         # Generate recommendations
-        recommendations = generate_recommendations(input_data)
+        recommendations = generate_recommendations(input_features)
+        logger.debug(f"Recommendations: {recommendations}")
 
-        # Respond with prediction and recommendations
-        return jsonify({
-            "Soil Health Prediction": prediction_label,
-            "Recommendations": recommendations
-        })
+        # Prepare response directly from model results
+        response = {
+            "soilHealthPrediction": prediction_label,
+            "recommendations": recommendations
+        }
+        logger.debug(f"Final Response: {response}")
+        return jsonify(response)
+
     except Exception as e:
-        return jsonify({"error": str(e)})
+        logger.error(f"Error during prediction: {str(e)}")
+        return jsonify({"error": str(e)}), 500
+
+
 
 # Run the app
 if __name__ == "__main__":
